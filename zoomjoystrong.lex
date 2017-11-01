@@ -8,7 +8,7 @@
   #include <stdio.h>
   #include "zoomjoystrong.h" 
   #include "zoomjoystrong.tab.h"
-<<<<<<< HEAD
+
   
 /** could not include comments describing tokens below so
 * will include them here **/
@@ -25,7 +25,7 @@
 /** end line token **/
 /** token that identifies everything that isn't a previous token **/
 /** referrenced http://www.rexegg.com/regex-quickstart.html to understand reg exrules * */
-=======
+
 
 
 
@@ -77,11 +77,9 @@ end	    {
 	    }
 
 \s         ;  
-<<<<<<< HEAD
 (point)|(circle)|(line)|(set_color)|(end)|;|[0-9]] { 
-=======
+
 [^(point)|(circle)|(line)|(set_color)|(end)|;|[0-9]] { 
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 							return ERROR_INVALID;
 					       	}
 
