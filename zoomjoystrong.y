@@ -78,11 +78,7 @@ point:	POINT INT INT END_STATEMENT
 	
 	if($3 > 768 || $3 < 0){
 	
-<<<<<<< HEAD
 	    yyerror("Out of Range");
-=======
-	    yyerror("Invalid Input");
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 	}
 	point($2, $3);
 	}
@@ -92,28 +88,21 @@ circle: CIRCLE INT INT INT END_STATEMENT
 	{
            if($2 > 1024 || $2 < 0){
         
-<<<<<<< HEAD
 	       yyerror("Out of Range");
-=======
-	       yyerror("Invalid Input");
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 	}
 
         if($3 > 768 || $3 < 0){
                
-<<<<<<< HEAD
 	    yyerror("Out of Range");
         }
 	if($4 > 1024 || $4 < 0){
 	    
 	    yyerror("Out of Range");
-=======
-	    yyerror("Invalid Input");
         }
 	if($4 > 1024 || $4 < 0){
 	    
 	    yyerror("Invalid Input");
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
+
 	}
 	circle($2, $3, $4);
 	}
@@ -123,18 +112,15 @@ end_state:	END END_STATEMENT			{finish();exit(0);}
 line:	LINE INT INT INT INT END_STATEMENT
  {
        if($2 > 1024 || $2 < 0){
-         
-<<<<<<< HEAD
+
 	  yyerror("Out of Range");
-=======
+
 	  yyerror("Invalid Input");
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 	
 	     }
    
           if($3 > 768 || $3 < 0){
                   
-<<<<<<< HEAD
 	    yyerror("Out of Range");
 	
           }
@@ -143,8 +129,6 @@ line:	LINE INT INT INT INT END_STATEMENT
           }
           if($5 > 768 || $5 < 0){
                   yyerror("Out of Range");
-=======
-	    yyerror("Invalid Input");
 	
           }
           if($4 > 1024 || $4 < 0){
