@@ -78,7 +78,11 @@ point:	POINT INT INT END_STATEMENT
 	
 	if($3 > 768 || $3 < 0){
 	
+<<<<<<< HEAD
+	    yyerror("Out of Range");
+=======
 	    yyerror("Invalid Input");
+>>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 	}
 	point($2, $3);
 	}
@@ -88,16 +92,28 @@ circle: CIRCLE INT INT INT END_STATEMENT
 	{
            if($2 > 1024 || $2 < 0){
         
+<<<<<<< HEAD
+	       yyerror("Out of Range");
+=======
 	       yyerror("Invalid Input");
+>>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 	}
 
         if($3 > 768 || $3 < 0){
                
+<<<<<<< HEAD
+	    yyerror("Out of Range");
+        }
+	if($4 > 1024 || $4 < 0){
+	    
+	    yyerror("Out of Range");
+=======
 	    yyerror("Invalid Input");
         }
 	if($4 > 1024 || $4 < 0){
 	    
 	    yyerror("Invalid Input");
+>>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 	}
 	circle($2, $3, $4);
 	}
@@ -108,12 +124,26 @@ line:	LINE INT INT INT INT END_STATEMENT
  {
        if($2 > 1024 || $2 < 0){
          
+<<<<<<< HEAD
+	  yyerror("Out of Range");
+=======
 	  yyerror("Invalid Input");
+>>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 	
 	     }
    
           if($3 > 768 || $3 < 0){
                   
+<<<<<<< HEAD
+	    yyerror("Out of Range");
+	
+          }
+          if($4 > 1024 || $4 < 0){
+              yyerror("Out of Range");
+          }
+          if($5 > 768 || $5 < 0){
+                  yyerror("Out of Range");
+=======
 	    yyerror("Invalid Input");
 	
           }
@@ -122,6 +152,7 @@ line:	LINE INT INT INT INT END_STATEMENT
           }
           if($5 > 768 || $5 < 0){
                   yyerror("Invalid Input");
+>>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
           }
            line($2,$3,$4,$5);
           }
@@ -130,6 +161,19 @@ line:	LINE INT INT INT INT END_STATEMENT
 rectangle: RECTANGLE INT INT INT INT END_STATEMENT
 	 {
            if($2 > 1024 || $2 < 0){
+<<<<<<< HEAD
+                yyerror("Out of Range");
+        }
+           
+        if($3 > 768 || $3 < 0){
+                yyerror("Out of Range");
+        }       
+        if($4 > 1024 || $4 < 0){
+                yyerror("Out of Range");
+        }
+	if($5 > 768 || $5 < 0){
+		yyerror("Out of Range");
+=======
                 yyerror("Invalid Input");
         }
            
@@ -141,6 +185,7 @@ rectangle: RECTANGLE INT INT INT INT END_STATEMENT
         }
 	if($5 > 768 || $5 < 0){
 		yyerror("Invalid Input");
+>>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 	}
 	rectangle($2,$3,$4,$5);
 	}
@@ -149,6 +194,15 @@ rectangle: RECTANGLE INT INT INT INT END_STATEMENT
 set_color: SET_COLOR INT INT INT END_STATEMENT
 	   { 
 	     if($2 > 255 || $2 < 0){
+<<<<<<< HEAD
+		yyerror("Out of Range");
+		}
+	     if($3 > 255 || $3 < 0){
+                yyerror("Out of Range");
+                }
+	     if($4 > 255 || $4 < 0){
+                yyerror("Out of Range");
+=======
 		yyerror("Invalid Input");
 		}
 	     if($3 > 255 || $3 < 0){
@@ -156,6 +210,7 @@ set_color: SET_COLOR INT INT INT END_STATEMENT
                 }
 	     if($4 > 255 || $4 < 0){
                 yyerror("Invalid Input");
+>>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
                 }
 	     set_color($2, $3, $4);
 	}
@@ -180,11 +235,21 @@ int main(int argc, char** argv){
 	yyparse();
 	return 0;
 } 
+<<<<<<< HEAD
+/**************************************************************************
+* handles errors found in CFG
+* @param char *s string of error
+*
+* referrenced:
+* https://www.gnu.org/software/bison/manual/html_node/Error-Reporting.html
+****************************************************************************/     
+=======
 /*********************************
 * handles errors found in CFG
 * @param char *s string of error
 *
 *********************************/     
+>>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 void yyerror(char *s){
 	fprintf(stderr,"%s\n", s);
 }

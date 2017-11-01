@@ -8,8 +8,27 @@
   #include <stdio.h>
   #include "zoomjoystrong.h" 
   #include "zoomjoystrong.tab.h"
+<<<<<<< HEAD
+  
+/** could not include comments describing tokens below so
+* will include them here **/
+
+/** end token that will end program **/
+/** int token that identifies ints **/
+/** float token identifies floating point types **/
+/** circle token finds circle **/
+/** point token finds a point **/
+/** rectangle token finds/identifies a rectangle **/
+/** line token finds a line **/
+/** set_color identifies color choice **/
+/** ignores white space **/
+/** end line token **/
+/** token that identifies everything that isn't a previous token **/
+/** referrenced http://www.rexegg.com/regex-quickstart.html to understand reg exrules * */
+=======
 
 
+>>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 %}
 
 %option noyywrap
@@ -58,7 +77,11 @@ end	    {
 	    }
 
 \s         ;  
+<<<<<<< HEAD
+(point)|(circle)|(line)|(set_color)|(end)|;|[0-9]] { 
+=======
 [^(point)|(circle)|(line)|(set_color)|(end)|;|[0-9]] { 
+>>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 							return ERROR_INVALID;
 					       	}
 
