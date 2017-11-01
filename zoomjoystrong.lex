@@ -6,10 +6,9 @@
   **************************************************/
 
   #include <stdio.h>
-  #include "zoomjoystrong.h" 
+  #include "zoomjoystrong.h"
   #include "zoomjoystrong.tab.h"
-<<<<<<< HEAD
-  
+
 /** could not include comments describing tokens below so
 * will include them here **/
 
@@ -25,66 +24,59 @@
 /** end line token **/
 /** token that identifies everything that isn't a previous token **/
 /** referrenced http://www.rexegg.com/regex-quickstart.html to understand reg exrules * */
-=======
-
-
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
 %}
 
 %option noyywrap
 
 %%
 
-end	    {
-		return END;
-	    }
+end         {
+                return END;
+            }
 
 [+-]?[0-9]+  {
-		yylval.intValue = atoi(yytext);
-		return INT;
-	     }
-		
-^[-+][0-9]+\.[0-9]+[eE][-+]?[0-9]+$ { 
-			    yylval.floatValue = atof(yytext);
-			    return FLOAT;
-			}
+                yylval.intValue = atoi(yytext);
+                return INT;
+             }
+
+^[-+][0-9]+\.[0-9]+[eE][-+]?[0-9]+$ {
+                            yylval.floatValue = atof(yytext);
+                            return FLOAT;
+                        }
 
 
 (circle)    {
-		return CIRCLE;
-	    }
+                return CIRCLE;
+}
 
 
 (point)    {
-		return POINT;
-	   }
+                return POINT;
+           }
 
 (line)     {
-		return LINE;
-	   }
+                return LINE;
+           }
 
 (rectangle) {
-	 	return RECTANGLE;
- 	    }
+                return RECTANGLE;
+            }
 
 (set_color) {
-		return SET_COLOR;
-	    }
+                return SET_COLOR;
+            }
 
 
-;$	    {
-		return END_STATEMENT;
-	    }
+;$          {
+                return END_STATEMENT;
+            }
 
-\s         ;  
-<<<<<<< HEAD
-(point)|(circle)|(line)|(set_color)|(end)|;|[0-9]] { 
-=======
-[^(point)|(circle)|(line)|(set_color)|(end)|;|[0-9]] { 
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
-							return ERROR_INVALID;
-					       	}
+\s         ;
+(point)|(circle)|(line)|(set_color)|(end)|;|[0-9]] {
+                                                        return ERROR_INVALID;
+                                                }
 
 
 %%
 
+                                            
