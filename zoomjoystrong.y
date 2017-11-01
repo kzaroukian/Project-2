@@ -12,7 +12,7 @@
 %}
 
 %start program
-/** creates token types **/ 
+/** creates token types **/
 %{
 int yylex();
 void yyerror(char *s);
@@ -20,9 +20,9 @@ void yyerror(char *s);
 %}
 
 %union{
-	int intValue;
-	float floatValue;
-	
+        int intValue;
+        float floatValue;
+
 }
 
 /** int token **/
@@ -46,168 +46,126 @@ void yyerror(char *s);
 /** error token **/
 %token ERROR_INVALID
 %%
-
 /** Context Free Grammar **/
 
 /** defines the grammar **/
 program: list end_state;
-/**	{ setup();}; **/
+/**     { setup();}; **/
 /** defines a list of statements **/
-list:	stat
-	|
-	stat list;
-/** defines statements **/	
-stat:	point
-     	|
-	circle
-	| 
-	line
-	|
-	rectangle
-	|
-	set_color
-	|
-	error_invalid
+list:   stat
+        |
+        stat list;
+/** defines statements **/
+stat:   point
+        |
+        circle
+        | 
+        line
+        |
+        rectangle
+        |
+        set_color
+        |
+        error_invalid
         ;
 /** defines point **/
-point:	POINT INT INT END_STATEMENT
-	{
-	   if($2 > 1024 || $2 < 0){
-		yyerror("Out of Range");
-	}
-	
-	if($3 > 768 || $3 < 0){
-	
-	    yyerror("Out of Range");
-	}
-	point($2, $3);
-	}
-	;
-/** defines circle **/
-circle: CIRCLE INT INT INT END_STATEMENT
-	{
+point:  POINT INT INT END_STATEMENT
+        {
            if($2 > 1024 || $2 < 0){
-        
-	       yyerror("Out of Range");
-	}
+                yyerror("Out of Range");
+        }
 
         if($3 > 768 || $3 < 0){
-               
-	    yyerror("Out of Range");
-        }
-	if($4 > 1024 || $4 < 0){
-	    
-	    yyerror("Out of Range");
-        }
-	if($4 > 1024 || $4 < 0){
-	    
-	    yyerror("Invalid Input");
 
-	}
-	circle($2, $3, $4);
-	}
-	;
-end_state:	END END_STATEMENT			{finish();exit(0);}
+            yyerror("Out of Range");
+        }
+        point($2, $3);
+        }
+        ;
+/** defines circle **/
+circle: CIRCLE INT INT INT END_STATEMENT
+        {
+           if($2 > 1024 || $2 < 0){
+
+               yyerror("Out of Range");
+        }
+
+        if($3 > 768 || $3 < 0){
+
+            yyerror("Out of Range");
+        if($4 > 1024 || $4 < 0){
+
+            yyerror("Out of Range");
+        }
+        circle($2, $3, $4);
+        }
+        ;
+end_state:      END END_STATEMENT                       {finish();exit(0);}
 /** defines line **/
-line:	LINE INT INT INT INT END_STATEMENT
+line:   LINE INT INT INT INT END_STATEMENT
  {
        if($2 > 1024 || $2 < 0){
 
-	  yyerror("Out of Range");
+          yyerror("Out of Range");
 
-	  yyerror("Invalid Input");
-	
-	     }
-   
+             }
+
           if($3 > 768 || $3 < 0){
-                  
-	    yyerror("Out of Range");
-	
+
+            yyerror("Out of Range");
+
           }
           if($4 > 1024 || $4 < 0){
               yyerror("Out of Range");
           }
           if($5 > 768 || $5 < 0){
                   yyerror("Out of Range");
-	
-          }
-          if($4 > 1024 || $4 < 0){
-              yyerror("Invalid Input");
-          }
-          if($5 > 768 || $5 < 0){
-                  yyerror("Invalid Input");
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
           }
            line($2,$3,$4,$5);
           }
           ;
 /** defines rectangle **/
 rectangle: RECTANGLE INT INT INT INT END_STATEMENT
-	 {
+         {
            if($2 > 1024 || $2 < 0){
-<<<<<<< HEAD
                 yyerror("Out of Range");
         }
-           
+
         if($3 > 768 || $3 < 0){
                 yyerror("Out of Range");
-        }       
-        if($4 > 1024 || $4 < 0){
+        }
+                                                                                                                                   138,1         61%
+	if($4 > 1024 || $4 < 0){
                 yyerror("Out of Range");
         }
-	if($5 > 768 || $5 < 0){
-		yyerror("Out of Range");
-=======
-                yyerror("Invalid Input");
+        if($5 > 768 || $5 < 0){
+                yyerror("Out of Range");
         }
-           
-        if($3 > 768 || $3 < 0){
-                yyerror("Invalid Input");
-        }       
-        if($4 > 1024 || $4 < 0){
-                yyerror("Invalid Input");
+        rectangle($2,$3,$4,$5);
         }
-	if($5 > 768 || $5 < 0){
-		yyerror("Invalid Input");
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
-	}
-	rectangle($2,$3,$4,$5);
-	}
-	;
+        ;
 /** defines set_color **/
 set_color: SET_COLOR INT INT INT END_STATEMENT
-	   { 
-	     if($2 > 255 || $2 < 0){
-<<<<<<< HEAD
-		yyerror("Out of Range");
-		}
-	     if($3 > 255 || $3 < 0){
+           {
+             if($2 > 255 || $2 < 0){
                 yyerror("Out of Range");
                 }
-	     if($4 > 255 || $4 < 0){
+             if($3 > 255 || $3 < 0){
                 yyerror("Out of Range");
-=======
-		yyerror("Invalid Input");
-		}
-	     if($3 > 255 || $3 < 0){
-                yyerror("Invalid Input");
                 }
-	     if($4 > 255 || $4 < 0){
-                yyerror("Invalid Input");
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
+             if($4 > 255 || $4 < 0){
+                yyerror("Out of Range");
                 }
-	     set_color($2, $3, $4);
-	}
-	;
+             set_color($2, $3, $4);
+        }
+        ;
 /** catches error if nontoken is typed **/
 error_invalid: ERROR_INVALID
-	{
-		yyerror("Invalid Input");
-	};
-		
+        {
+                yyerror("Invalid Input");
+        };
+
 %%
-
-
 /**********************************
 * main function that calls yyparse
 * @param argc num arguments
@@ -215,26 +173,17 @@ error_invalid: ERROR_INVALID
 * @return 0
 ************************************/
 int main(int argc, char** argv){
-	setup();
-	yyparse();
-	return 0;
-} 
-<<<<<<< HEAD
+        setup();
+        yyparse();
+        return 0;
+}
 /**************************************************************************
 * handles errors found in CFG
 * @param char *s string of error
 *
 * referrenced:
 * https://www.gnu.org/software/bison/manual/html_node/Error-Reporting.html
-****************************************************************************/     
-=======
-/*********************************
-* handles errors found in CFG
-* @param char *s string of error
-*
-*********************************/     
->>>>>>> 43cedc2057f713bb587aab867e710b4fb302f221
+****************************************************************************/
 void yyerror(char *s){
-	fprintf(stderr,"%s\n", s);
+        fprintf(stderr,"%s\n", s);
 }
-
